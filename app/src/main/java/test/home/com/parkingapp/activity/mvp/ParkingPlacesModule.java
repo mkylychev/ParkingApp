@@ -1,4 +1,4 @@
-package test.home.com.parkingapp;
+package test.home.com.parkingapp.activity.mvp;
 
 import dagger.Module;
 import dagger.Provides;

@@ -2,6 +2,10 @@ package test.home.com.parkingapp;
 
 import android.app.Application;
 
+import test.home.com.parkingapp.activity.mvp.ApplicationComponent;
+import test.home.com.parkingapp.activity.mvp.DaggerApplicationComponent;
+import test.home.com.parkingapp.activity.mvp.ParkingPlacesModule;
+
 public class App extends Application {
     private ApplicationComponent component;
 

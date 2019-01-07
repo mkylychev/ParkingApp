@@ -39,7 +39,8 @@ public class ParkingPlaceAdapter extends RecyclerView.Adapter<ParkingPlaceAdapte
     public void onBindViewHolder(ViewHolder holder, final int position) {
 
         holder.itemTitle.setText(list.get(position).getTitle());
-        holder.itemdescription.setText(list.get(position).getDescription());
+        holder.itemDescription.setText(list.get(position).getDescription());
+        holder.distance.setText(String.valueOf((int) list.get(position).getDistance()+" meters"));
         Glide.with(context)
                 .load(list.get(position).getImageUrl())
                 .into(holder.image);
@@ -52,12 +53,17 @@ public class ParkingPlaceAdapter extends RecyclerView.Adapter<ParkingPlaceAdapte
         return list.size();
     }
 
+    public void clear(){
+        list.clear();
+    }
     public  class ViewHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.title)
         TextView itemTitle;
         @BindView(R.id.description)
-        TextView itemdescription;
+        TextView itemDescription;
+        @BindView(R.id.distance)
+        TextView distance;
         @BindView(R.id.image)
         ImageView image;
         View itemView;

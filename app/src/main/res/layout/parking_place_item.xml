@@ -27,6 +27,15 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="150dp"
             />
+        <TextView
+            android:id="@+id/distance"
+            android:text="distance"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/description"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="150dp"
+            />
 
         <ImageView
             android:id="@+id/image"

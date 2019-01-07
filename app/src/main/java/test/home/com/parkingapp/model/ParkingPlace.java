@@ -15,6 +15,7 @@ public class ParkingPlace {
     String imageUrl;
     PolygonOptions polygonOptions;
     LatLng latLng;
+    double distance;
 
 
 
@@ -64,6 +65,14 @@ public class ParkingPlace {
 
     public void setLatLng(LatLng latLng) {
         this.latLng = latLng;
+    }
+
+    public double getDistance() {
+        return distance;
+    }
+
+    public void setDistance(double distance) {
+        this.distance = distance;
     }
 
     public static List<ParkingPlace> parkingPlaces(){
