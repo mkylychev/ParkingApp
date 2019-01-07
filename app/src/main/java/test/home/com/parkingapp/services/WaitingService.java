@@ -1,4 +1,4 @@
-package test.home.com.parkingapp;
+package test.home.com.parkingapp.services;
 
 import android.app.Service;
 import android.content.BroadcastReceiver;
@@ -7,7 +7,8 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.location.Location;
 import android.os.IBinder;
-import android.util.Log;
+
+import test.home.com.parkingapp.Constants;
 
 public class WaitingService extends Service {
     private BroadcastReceiver receiver;
@@ -20,14 +21,12 @@ public class WaitingService extends Service {
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.e("test_log","Waiting service start");
         receiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
                 Location location = (Location) intent.getExtras().get(Constants.USER_LOCATION);
 
                 if(location!=null){
-                    Log.e("test_log","waiting  service location recived");
                     Intent waitingService = new Intent(Constants.WAITING_SERVICE);
                     waitingService.putExtra(Constants.USER_LOCATION, location);
                     sendBroadcast(waitingService);

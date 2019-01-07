@@ -10,7 +10,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import test.home.com.parkingapp.MapsActivity.MapsActivity;
+import test.home.com.parkingapp.activity.MapsActivity.MapsActivity;
+import test.home.com.parkingapp.services.LocationService;
 
 public class SplashScreenActivity extends AppCompatActivity {
 
@@ -39,13 +40,11 @@ public class SplashScreenActivity extends AppCompatActivity {
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if(requestCode == 100){
             if( grantResults[0] == PackageManager.PERMISSION_GRANTED || grantResults[1] == PackageManager.PERMISSION_GRANTED){
                 startService(new Intent(getApplicationContext(), LocationService.class));
             } else {
                 runtimePermissions();
             }
-        }
     }
 
     public void onStartClick(View view) {

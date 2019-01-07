@@ -2,9 +2,9 @@ package test.home.com.parkingapp;
 
 import dagger.Module;
 import dagger.Provides;
-import test.home.com.parkingapp.MapsActivity.MapsActivityMVP;
-import test.home.com.parkingapp.MapsActivity.MapsActivityPresenter;
-import test.home.com.parkingapp.MapsActivity.ParkingPlaceModel;
+import test.home.com.parkingapp.activity.MapsActivity.MapsActivityMVP;
+import test.home.com.parkingapp.activity.MapsActivity.MapsActivityPresenter;
+import test.home.com.parkingapp.activity.MapsActivity.ParkingPlaceModel;
 
 @Module
 public class ParkingPlacesModule {

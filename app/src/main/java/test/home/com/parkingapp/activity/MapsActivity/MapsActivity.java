@@ -1,4 +1,4 @@
-package test.home.com.parkingapp.MapsActivity;
+package test.home.com.parkingapp.activity.MapsActivity;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -21,11 +21,13 @@ import com.google.maps.android.SphericalUtil;
 
 import javax.inject.Inject;
 
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import test.home.com.parkingapp.App;
 import test.home.com.parkingapp.Constants;
 import test.home.com.parkingapp.R;
+import test.home.com.parkingapp.activity.ParkingPlaceListActivity.ParkingPlaceListActivity;
 import test.home.com.parkingapp.model.ParkingPlace;
-import test.home.com.parkingapp.MapsActivity.MapsActivityMVP;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, MapsActivityMVP.View {
 
@@ -39,12 +41,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
+        ButterKnife.bind(this);
         ((App) getApplication()).getApplicationComponent().inject(this);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-
     }
 
 
@@ -65,7 +67,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                         Toast.makeText(getApplicationContext(), "Location is in polygon", Toast.LENGTH_LONG).show();
                     }
                     LatLng sydney = new LatLng(location.getLatitude(), location.getLongitude());
-                    mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
+                    mMap.addMarker(new MarkerOptions().position(sydney).title("My location"));
 
                 }
                 else {
@@ -91,8 +93,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     @Override
-    public void updateData(ParkingPlace placeModel) {
-        mMap.addPolygon(placeModel.getPolygonOptions());
+    protected void onDestroy() {
+        super.onDestroy();
+        unregisterReceiver(receiver);
     }
 
+    @Override
+    public void updateData(ParkingPlace placeModel) {
+        mMap.addPolygon(placeModel.getPolygonOptions());
+        mMap.addMarker(new MarkerOptions()
+                .position(placeModel.getLatLng())
+                .title(placeModel.getTitle())
+                .snippet(placeModel.getDescription()));
+    }
+
+    @OnClick(R.id.choose_parking)
+    public void onClick(){
+        startActivity(new Intent(this, ParkingPlaceListActivity.class));
+    }
 }

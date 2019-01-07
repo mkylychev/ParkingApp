@@ -1,6 +1,4 @@
-package test.home.com.parkingapp.MapsActivity;
-
-import android.util.Log;
+package test.home.com.parkingapp.activity.MapsActivity;
 
 import test.home.com.parkingapp.model.ParkingPlace;
 
@@ -26,4 +24,11 @@ public class MapsActivityPresenter implements MapsActivityMVP.Presenter {
     public void setView(MapsActivityMVP.View view) {
         this.view = view;
     }
+
+    @Override
+    public void isUserInParkingZone() {
+
+    }
+
+
 }

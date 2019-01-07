@@ -1,4 +1,4 @@
-package test.home.com.parkingapp.MapsActivity;
+package test.home.com.parkingapp.activity.MapsActivity;
 
 import java.util.List;
 
@@ -19,6 +19,8 @@ public class MapsActivityMVP  {
 
 
         void setView(MapsActivityMVP.View view);
+
+        void isUserInParkingZone();
 
     }
 
