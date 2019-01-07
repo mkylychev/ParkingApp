@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.location.Location;
+import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -109,6 +110,17 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     @OnClick(R.id.choose_parking)
     public void onClick(){
-        startActivity(new Intent(this, ParkingPlaceListActivity.class));
+        startActivityForResult(new Intent(this, ParkingPlaceListActivity.class), Constants.CHOOSE_PARKING_PLACE_CODE);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if(requestCode == Constants.CHOOSE_PARKING_PLACE_CODE && resultCode == RESULT_OK){
+            if (data != null) {
+                LatLng parkingPlace =  data.getParcelableExtra(Constants.PARKING_PLACE);
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(parkingPlace, 15f));
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }

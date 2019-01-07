@@ -20,11 +20,12 @@ import test.home.com.parkingapp.model.ParkingPlace;
 public class ParkingPlaceAdapter extends RecyclerView.Adapter<ParkingPlaceAdapter.ViewHolder> {
     Context context;
     private List<ParkingPlace> list;
+    AdapterItemClickListener listener;
 
-
-    public ParkingPlaceAdapter(List<ParkingPlace> list, Context context) {
+    public ParkingPlaceAdapter(List<ParkingPlace> list, Context context, AdapterItemClickListener listener) {
         this.list = list;
         this.context = context;
+        this.listener = listener;
     }
 
     @Override
@@ -35,13 +36,14 @@ public class ParkingPlaceAdapter extends RecyclerView.Adapter<ParkingPlaceAdapte
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
+    public void onBindViewHolder(ViewHolder holder, final int position) {
 
         holder.itemTitle.setText(list.get(position).getTitle());
         holder.itemdescription.setText(list.get(position).getDescription());
         Glide.with(context)
                 .load(list.get(position).getImageUrl())
                 .into(holder.image);
+        holder.itemView.setOnClickListener(view -> listener.onClick(list.get(position)));
     }
 
     @Override
@@ -50,7 +52,7 @@ public class ParkingPlaceAdapter extends RecyclerView.Adapter<ParkingPlaceAdapte
         return list.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public  class ViewHolder extends RecyclerView.ViewHolder {
 
         @BindView(R.id.title)
         TextView itemTitle;
@@ -58,12 +60,17 @@ public class ParkingPlaceAdapter extends RecyclerView.Adapter<ParkingPlaceAdapte
         TextView itemdescription;
         @BindView(R.id.image)
         ImageView image;
+        View itemView;
 
         public ViewHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
-
+            this.itemView = itemView;
         }
+    }
+
+    public interface AdapterItemClickListener{
+        void onClick(ParkingPlace place);
     }
 }
 
