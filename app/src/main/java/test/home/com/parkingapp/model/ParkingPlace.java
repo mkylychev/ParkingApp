@@ -5,11 +5,13 @@ import android.graphics.Color;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.PolygonOptions;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 public class ParkingPlace {
 
+    int id;
     String title;
     String description;
     String imageUrl;
@@ -25,6 +27,14 @@ public class ParkingPlace {
         this.imageUrl = imageUrl;
         this.polygonOptions = polygonOptions;
         this.latLng = latLng;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -138,12 +148,12 @@ public class ParkingPlace {
                         new LatLng(42.831432, 74.621445)));
 
 
-        parkingPlaces.add(new ParkingPlace("My home", "Shopping center with 500 places",
+        parkingPlaces.add(new ParkingPlace("Spalmalo", "Shopping center with 500 places",
                 "https://i6.photo.2gis.com/images/branch/112/15762598707170776_6047.jpg",
-                new PolygonOptions().add(new LatLng(42.877272, 74.540272))
-                        .add(new LatLng(42.877315, 74.541485))
-                        .add(new LatLng(42.877053, 74.541599))
-                        .add(new LatLng(42.876939, 74.540341))
+                new PolygonOptions().add(new LatLng(42.866007, 74.600347))
+                        .add(new LatLng(42.865913, 74.601212))
+                        .add(new LatLng(42.865481, 74.601112))
+                        .add(new LatLng(42.865292, 74.600328))
                         .strokeColor(Color.YELLOW)
                         .fillColor(Color.LTGRAY),new LatLng(42.875608, 74.592804)));
 

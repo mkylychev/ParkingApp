@@ -25,10 +25,7 @@ public class MapsActivityPresenter implements MapsActivityMVP.Presenter {
         this.view = view;
     }
 
-    @Override
-    public void isUserInParkingZone() {
 
-    }
 
 
 }

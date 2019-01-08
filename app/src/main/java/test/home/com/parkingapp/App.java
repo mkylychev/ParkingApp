@@ -2,9 +2,10 @@ package test.home.com.parkingapp;
 
 import android.app.Application;
 
-import test.home.com.parkingapp.activity.mvp.ApplicationComponent;
-import test.home.com.parkingapp.activity.mvp.DaggerApplicationComponent;
-import test.home.com.parkingapp.activity.mvp.ParkingPlacesModule;
+import io.realm.Realm;
+import test.home.com.parkingapp.mvp.ApplicationComponent;
+import test.home.com.parkingapp.mvp.DaggerApplicationComponent;
+import test.home.com.parkingapp.mvp.ParkingPlacesModule;
 
 public class App extends Application {
     private ApplicationComponent component;
@@ -19,5 +20,7 @@ public class App extends Application {
         component = DaggerApplicationComponent.builder()
                 .parkingPlacesModule(new ParkingPlacesModule())
                 .build();
+
+        Realm.init(this);
     }
 }

@@ -39,7 +39,8 @@
         <activity
             android:name=".activity.MapsActivity.MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".activity.ParkingPlaceListActivity.ParkingPlaceListActivity"></activity>
+        <activity android:name=".activity.ParkingPlaceListActivity.ParkingPlaceListActivity" />
+        <activity android:name=".activity.ParkingHistoryActivity.ParkingHistoryActivity"></activity>
     </application>
 
 </manifest>

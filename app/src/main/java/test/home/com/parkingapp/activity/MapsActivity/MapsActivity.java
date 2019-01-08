@@ -8,17 +8,14 @@ import android.location.Location;
 import android.support.annotation.Nullable;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.maps.android.PolyUtil;
-import com.google.maps.android.SphericalUtil;
 
 import javax.inject.Inject;
 
@@ -33,6 +30,7 @@ import test.home.com.parkingapp.model.ParkingPlace;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback, MapsActivityMVP.View {
 
     private GoogleMap mMap;
+    private Marker myLocationMarker;
     BroadcastReceiver receiver;
     boolean isAttached = false;
     @Inject
@@ -61,18 +59,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             public void onReceive(Context context, Intent intent) {
                 Location location = (Location) intent.getExtras().get(Constants.USER_LOCATION);
                 if(location!=null && isAttached ){
-                    Log.e("test_log","distance = " +SphericalUtil.computeDistanceBetween(new LatLng(location.getLatitude(), location.getLongitude()),new LatLng(42.875462, 74.540486)));
+                    if(myLocationMarker!=null)
+                        myLocationMarker.remove();
 
-                    if(PolyUtil.containsLocation(location.getLatitude(), location.getLongitude(), ParkingPlace.parkingPlaces().get(6).getPolygonOptions().getPoints(),true)){
-                        Toast.makeText(getApplicationContext(), "Location is in polygon", Toast.LENGTH_LONG).show();
-                    }
-                    LatLng sydney = new LatLng(location.getLatitude(), location.getLongitude());
-                    mMap.addMarker(new MarkerOptions().position(sydney).title("My location"));
+                    LatLng myLocation = new LatLng(location.getLatitude(), location.getLongitude());
+                    myLocationMarker = mMap.addMarker(new MarkerOptions().position(myLocation).title("My location"));
+                }
 
-                }
-                else {
-                    Toast.makeText(getApplicationContext(), "Location is null", Toast.LENGTH_LONG).show();
-                }
             }
         };
         registerReceiver(receiver, new IntentFilter(Constants.WAITING_SERVICE));

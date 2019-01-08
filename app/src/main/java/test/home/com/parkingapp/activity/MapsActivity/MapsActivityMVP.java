@@ -20,7 +20,6 @@ public class MapsActivityMVP  {
 
         void setView(MapsActivityMVP.View view);
 
-        void isUserInParkingZone();
 
     }
 
