@@ -1,4 +1,4 @@
-package test.home.com.parkingapp.mvp;
+package test.home.com.parkingapp.di;
 
 
 import javax.inject.Singleton;
