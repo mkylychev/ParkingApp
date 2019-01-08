@@ -78,7 +78,6 @@ public class WaitingService extends Service {
     private boolean checkForParking() {
         for (ParkingPlace parkingPlace : ParkingPlace.parkingPlaces()) {
             if (PolyUtil.containsLocation(location.getLatitude(), location.getLongitude(), parkingPlace.getPolygonOptions().getPoints(), true)) {
-                Toast.makeText(getApplicationContext(), "Location is in parking zone", Toast.LENGTH_LONG).show();
                 place = parkingPlace;
                 return true;
             }

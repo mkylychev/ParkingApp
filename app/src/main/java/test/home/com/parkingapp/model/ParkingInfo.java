@@ -88,4 +88,11 @@ public class ParkingInfo extends RealmObject implements Serializable {
     public void setParkingTime(int parkingTime) {
         this.parkingTime = parkingTime;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof ParkingInfo)
+            return getId() == ((ParkingInfo) obj).getId();
+        return super.equals(obj);
+    }
 }

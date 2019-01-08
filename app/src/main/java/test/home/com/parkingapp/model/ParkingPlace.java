@@ -20,7 +20,6 @@ public class ParkingPlace {
     double distance;
 
 
-
     public ParkingPlace(String title, String description, String imageUrl, PolygonOptions polygonOptions, LatLng latLng) {
         this.title = title;
         this.description = description;
@@ -85,7 +84,7 @@ public class ParkingPlace {
         this.distance = distance;
     }
 
-    public static List<ParkingPlace> parkingPlaces(){
+    public static List<ParkingPlace> parkingPlaces() {
         ArrayList<ParkingPlace> parkingPlaces = new ArrayList<>();
 
         parkingPlaces.add(new ParkingPlace("Bishkek Park", "Shopping center with 500 parking places",
@@ -96,7 +95,7 @@ public class ParkingPlace {
                         .add(new LatLng(42.874694, 74.589764))
                         .strokeColor(Color.YELLOW)
                         .fillColor(Color.LTGRAY),
-                        new LatLng(42.874805, 74.590289)));
+                new LatLng(42.874805, 74.590289)));
 
         parkingPlaces.add(new ParkingPlace("Dordoi Plaza", "Shopping center with 2000 parking places",
                 "https://static-2.akipress.org/st_runews/8/1472528.1.1538384273.jpg",
@@ -105,7 +104,7 @@ public class ParkingPlace {
                         .add(new LatLng(42.874192, 74.617808))
                         .strokeColor(Color.YELLOW)
                         .fillColor(Color.LTGRAY),
-                        new LatLng(42.874806, 74.618420)));
+                new LatLng(42.874806, 74.618420)));
 
         parkingPlaces.add(new ParkingPlace("Asia moll", "Shopping moll with 3000 parking places",
                 "https://24.kg/files/media/30/30228.jpg",
@@ -115,7 +114,7 @@ public class ParkingPlace {
                         .add(new LatLng(42.856456, 74.584238))
                         .strokeColor(Color.YELLOW)
                         .fillColor(Color.LTGRAY),
-                        new LatLng(42.855668, 74.585087)));
+                new LatLng(42.855668, 74.585087)));
 
         parkingPlaces.add(new ParkingPlace("Karavan", "Shopping center with 200 parking places",
                 "https://gdb.rferl.org/72DFAF22-FF16-4355-B6C7-5FF5A581EC1C_cx0_cy3_cw0_w1023_r1_s.jpg",
@@ -125,7 +124,7 @@ public class ParkingPlace {
                         .add(new LatLng(42.873895, 74.593387))
                         .strokeColor(Color.YELLOW)
                         .fillColor(Color.LTGRAY),
-                        new LatLng(42.874684, 74.593645)));
+                new LatLng(42.874684, 74.593645)));
 
         parkingPlaces.add(new ParkingPlace("Beta Stores", "Parking place with 300 places",
                 "https://gdb.rferl.org/BF0F88FE-D804-4510-831F-27E155FC8353_w1023_r1_s.jpg",
@@ -135,7 +134,7 @@ public class ParkingPlace {
                         .add(new LatLng(42.875292, 74.592117))
                         .strokeColor(Color.YELLOW)
                         .fillColor(Color.LTGRAY),
-                        new LatLng(42.875608, 74.592804)));
+                new LatLng(42.875608, 74.592804)));
 
         parkingPlaces.add(new ParkingPlace("Beta Stores 2", "Shopping center with 500 places",
                 "https://i6.photo.2gis.com/images/branch/112/15762598707170776_6047.jpg",
@@ -145,17 +144,17 @@ public class ParkingPlace {
                         .add(new LatLng(42.831256, 74.620582))
                         .strokeColor(Color.YELLOW)
                         .fillColor(Color.LTGRAY),
-                        new LatLng(42.831432, 74.621445)));
+                new LatLng(42.831432, 74.621445)));
 
 
-        parkingPlaces.add(new ParkingPlace("Spalmalo", "Shopping center with 500 places",
-                "https://i6.photo.2gis.com/images/branch/112/15762598707170776_6047.jpg",
+        parkingPlaces.add(new ParkingPlace("Spalmalo", "It company",
+                "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQO0lT1jrihEmq7fFSVZOFfV0CKE_Qf6Cakz4PrJmDA4yH4A8BfRA",
                 new PolygonOptions().add(new LatLng(42.866007, 74.600347))
                         .add(new LatLng(42.865913, 74.601212))
                         .add(new LatLng(42.865481, 74.601112))
                         .add(new LatLng(42.865292, 74.600328))
                         .strokeColor(Color.YELLOW)
-                        .fillColor(Color.LTGRAY),new LatLng(42.875608, 74.592804)));
+                        .fillColor(Color.LTGRAY), new LatLng(42.865752, 74.600335)));
 
 
         return parkingPlaces;

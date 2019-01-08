@@ -17,6 +17,13 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="@string/choose_parking_place"
+        android:background="@color/colorPrimary"
+        android:textColor="@android:color/white"/>
+    <Button
+        android:id="@+id/show_parking_history"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="@string/show_parking_history"
         android:layout_alignParentBottom="true"
         android:background="@color/colorPrimary"
         android:textColor="@android:color/white"/>

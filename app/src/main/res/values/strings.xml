@@ -2,4 +2,5 @@
     <string name="app_name">ParkingApp</string>
     <string name="title_activity_maps">Map</string>
     <string name="choose_parking_place">Choose Parking place</string>
+    <string name="show_parking_history">Show parking history</string>
 </resources>

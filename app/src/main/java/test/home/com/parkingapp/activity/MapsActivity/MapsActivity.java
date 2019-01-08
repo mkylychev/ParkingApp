@@ -24,6 +24,7 @@ import butterknife.OnClick;
 import test.home.com.parkingapp.App;
 import test.home.com.parkingapp.Constants;
 import test.home.com.parkingapp.R;
+import test.home.com.parkingapp.activity.ParkingHistoryActivity.ParkingHistoryActivity;
 import test.home.com.parkingapp.activity.ParkingPlaceListActivity.ParkingPlaceListActivity;
 import test.home.com.parkingapp.model.ParkingPlace;
 
@@ -101,8 +102,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     }
 
     @OnClick(R.id.choose_parking)
-    public void onClick(){
+    public void onChooseClick(){
         startActivityForResult(new Intent(this, ParkingPlaceListActivity.class), Constants.CHOOSE_PARKING_PLACE_CODE);
+    }
+
+    @OnClick(R.id.show_parking_history)
+    public void onHistoryClick(){
+        startActivity(new Intent(this, ParkingHistoryActivity.class));
     }
 
     @Override
@@ -110,7 +116,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         if(requestCode == Constants.CHOOSE_PARKING_PLACE_CODE && resultCode == RESULT_OK){
             if (data != null) {
                 LatLng parkingPlace =  data.getParcelableExtra(Constants.PARKING_PLACE);
-                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(parkingPlace, 15f));
+                mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(parkingPlace, 12f));
             }
         }
         super.onActivityResult(requestCode, resultCode, data);

@@ -4,7 +4,6 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.maps.android.SphericalUtil;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 
 import test.home.com.parkingapp.model.ParkingPlace;
 

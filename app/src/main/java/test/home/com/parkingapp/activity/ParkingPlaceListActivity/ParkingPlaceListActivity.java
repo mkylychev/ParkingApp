@@ -10,11 +10,9 @@ import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.widget.Toast;
 
 
 import com.google.android.gms.maps.model.LatLng;
-import com.google.maps.android.PolyUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,7 +39,7 @@ public class ParkingPlaceListActivity extends AppCompatActivity implements Parki
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_parking_place_list);
+        setContentView(R.layout.activity_with_recycler_view);
         ButterKnife.bind(this);
         resultList = new ArrayList<>();
         adapter = new ParkingPlaceAdapter(resultList, this, this);
