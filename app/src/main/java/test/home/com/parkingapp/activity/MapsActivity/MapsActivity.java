@@ -54,7 +54,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         presenter.loadData();
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(42.877278, 74.603985), 15f));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(42.877278, 74.603985), 12f));
         receiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
